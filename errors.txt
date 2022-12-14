@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 14: end of line expected.
-    scene boss office night:zoom .5
-                            ^
+File "game/script.rpy", line 80: end of line expected.
+    show street.jpg
+               ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Thu Nov 17 20:20:21 2022
+Wed Dec 14 13:41:56 2022
