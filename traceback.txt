@@ -1,32 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 38, in script
-    stop sound_loop
-  File "renpy/common/000statements.rpy", line 263, in execute_stop_music
-    renpy.music.stop(fadeout=eval(p["fadeout"]), channel=channel)
-Exception: Audio channel 'sound_loop' is unknown.
+  File "game/script.rpy", line 283, in script
+    jump office_2
+ScriptError: could not find label 'office_2'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 38, in script
-    stop sound_loop
-  File "D:\scoped_dir11068_1878028765\renpy-8.0.3-sdk\renpy\ast.py", line 2232, in execute
-    self.call("execute")
-  File "D:\scoped_dir11068_1878028765\renpy-8.0.3-sdk\renpy\ast.py", line 2220, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "D:\scoped_dir11068_1878028765\renpy-8.0.3-sdk\renpy\statements.py", line 281, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 263, in execute_stop_music
-    renpy.music.stop(fadeout=eval(p["fadeout"]), channel=channel)
-  File "D:\scoped_dir11068_1878028765\renpy-8.0.3-sdk\renpy\audio\music.py", line 297, in stop
-    c = get_channel(channel)
-  File "D:\scoped_dir11068_1878028765\renpy-8.0.3-sdk\renpy\audio\audio.py", line 915, in get_channel
-    raise Exception("Audio channel %r is unknown." % name)
-Exception: Audio channel 'sound_loop' is unknown.
+  File "game/script.rpy", line 283, in script
+    jump office_2
+  File "D:\scoped_dir11068_1878028765\renpy-8.0.3-sdk\renpy\ast.py", line 1974, in execute
+    rv = renpy.game.script.lookup(target)
+  File "D:\scoped_dir11068_1878028765\renpy-8.0.3-sdk\renpy\script.py", line 927, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'office_2'.
 
 Windows-10-10.0.22000 AMD64
 Ren'Py 8.0.3.22090809
 VisualNovel 1.0
-Wed Dec 14 19:11:08 2022
+Wed Dec 14 22:05:38 2022
