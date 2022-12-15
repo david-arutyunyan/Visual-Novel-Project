@@ -1,22 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 283, in script
-    jump office_2
-ScriptError: could not find label 'office_2'.
+  File "game/script.rpy", line 658, in script
+    col_4 "Да, мне бы рабочее место у окна. И чтобы недалеко от кофемашины."
+Exception: Sayer 'col_4' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 283, in script
-    jump office_2
-  File "D:\scoped_dir11068_1878028765\renpy-8.0.3-sdk\renpy\ast.py", line 1974, in execute
-    rv = renpy.game.script.lookup(target)
-  File "D:\scoped_dir11068_1878028765\renpy-8.0.3-sdk\renpy\script.py", line 927, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'office_2'.
+  File "game/script.rpy", line 658, in script
+    col_4 "Да, мне бы рабочее место у окна. И чтобы недалеко от кофемашины."
+  File "D:\scoped_dir11068_1878028765\renpy-8.0.3-sdk\renpy\ast.py", line 881, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "D:\scoped_dir11068_1878028765\renpy-8.0.3-sdk\renpy\ast.py", line 774, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'col_4' is not defined.
 
 Windows-10-10.0.22000 AMD64
 Ren'Py 8.0.3.22090809
 VisualNovel 1.0
-Wed Dec 14 22:05:38 2022
+Thu Dec 15 18:29:55 2022

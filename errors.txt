@@ -2,9 +2,35 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 222: expected statement.
-    col_1
-         ^
+The label shark_4 is defined twice, at File "game/script.rpy", line 688:
+label shark_4:
+and File "game/script.rpy", line 820:
+label shark_4:
+
+
+The label teddy_4 is defined twice, at File "game/script.rpy", line 710:
+label teddy_4:
+and File "game/script.rpy", line 823:
+label teddy_4:
+
+
+The label turtle_4 is defined twice, at File "game/script.rpy", line 730:
+label turtle_4:
+and File "game/script.rpy", line 826:
+label turtle_4:
+
+
+The label fox_4 is defined twice, at File "game/script.rpy", line 754:
+label fox_4:
+and File "game/script.rpy", line 829:
+label fox_4:
+
+
+The label owl_4 is defined twice, at File "game/script.rpy", line 770:
+label owl_4:
+and File "game/script.rpy", line 832:
+label owl_4:
+
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed Dec 14 20:42:53 2022
+Thu Dec 15 18:51:34 2022

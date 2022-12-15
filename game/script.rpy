@@ -1,14 +1,19 @@
 ﻿# Вы можете расположить сценарий своей игры в этом файле.
 
 # Определение персонажей игры.
-define boss = Character('Босс', color="#c8ffc8")
+define boss = Character('Босс', color="#b7b7b7")
 define hero = Character('Главный герой', color="#c8ffc8")
-define friend = Character('Друг', color="#c8ffc8")
-define col_1 = Character('Коллега 1', color="#c8ffc8")
-define col_2 = Character('Коллега 2', color="#c8ffc8")
-define g_3 = Character('Девочка 3', color="#c8ffc8")
-define g_4 = Character('Девочка 4', color="#c8ffc8")
-default counter = 50
+define friend = Character('Друг', color="#47b8c9")
+define col_1 = Character('Коллега 1', color="#1e00dd")
+define col_2 = Character('Коллега 2', color="#ef22d0")
+define col_3 = Character('Коллега 3', color="#f0fc00")
+define new_col = Character('Новый коллега', color="#dd0000")
+default shark_counter = 0
+default teddy_counter = 0
+default turtle_counter = 0
+default fox_counter = 0
+default owl_counter = 0
+
 # Вместо использования оператора image можете просто
 # складывать все ваши файлы изображений в папку images.
 # Например, сцену bg room можно вызвать файлом "bg room.png",
@@ -97,7 +102,7 @@ label morning:
 
     hero "Вот я и на месте, главное сейчас быстренько добежать до своего рабочего места и не попасться боссу на глаза..."
 
-    show friend smile at center:
+    show friend smile as friend_one at center:
         zoom 0.75
     with Dissolve(.5)
 
@@ -141,6 +146,7 @@ label shark_1:
 
     hero "{i}*тоже мне, раскомандовался...*"
 
+    $ shark_counter = shark_counter + 1
     jump office_1
 
 label teddy_1:
@@ -158,6 +164,7 @@ label teddy_1:
 
     hero "{i}*повезло же мне с боссом, могло быть и хуже...*"
 
+    $ teddy_counter = teddy_counter + 1
     jump office_1
 
 label turtle_1:
@@ -171,6 +178,7 @@ label turtle_1:
 
     hero "{i}*ладно, на этот раз вроде кое-как пронесло...*"
 
+    $ turtle_counter = turtle_counter + 1
     jump office_1
 
 label fox_1:
@@ -186,6 +194,7 @@ label fox_1:
 
     hero "{i}*прадва теперь придется остаться после работы... но могло быть и хуже...*"
 
+    $ fox_counter = fox_counter + 1
     jump office_1
 
 label owl_1:
@@ -201,6 +210,7 @@ label owl_1:
 
     hero "{i}*ну вот и отлично, теперь по средам, скорее всего, буду работать из дома...*"
 
+    $ owl_counter = owl_counter + 1
     jump office_1
 
 
@@ -218,7 +228,7 @@ label office_1:
 
     pause 0.5
 
-    show friend two smile at center:
+    show friend two smile as friend_two at center:
         zoom 0.75
     with Dissolve(.5)
 
@@ -252,7 +262,7 @@ label shark_2:
 
     col_1 "У меня сейчас встреча, так что я ухожу. Еще раз говорю, ничего не трогай!"
 
-    hide friend two smile
+    hide friend_two smile
     with Dissolve(.5)
 
     pause 0.5
@@ -265,7 +275,7 @@ label shark_2:
 
     hero "Вот и готово."
 
-    show friend two smile at center:
+    show friend two smile as friend_two at center:
         zoom 0.75
     with Dissolve(.5)
 
@@ -280,6 +290,7 @@ label shark_2:
 
     hero "{i}*да да...*"
 
+    $ shark_counter = shark_counter + 1
     jump office_2
 
 label teddy_2:
@@ -304,6 +315,7 @@ label teddy_2:
 
     hero "{i}*ну даёт...*"
 
+    $ teddy_counter = teddy_counter + 1
     jump office_2
 
 label turtle_2:
@@ -328,6 +340,7 @@ label turtle_2:
 
     hero "{i}*ладно, главное свой стол немного прибрал... не хочу с ней разговаривать на эту тему, она все равно не поймет...*"
 
+    $ turtle_counter = turtle_counter + 1
     jump office_2
 
 label fox_2:
@@ -335,7 +348,11 @@ label fox_2:
 
     col_1 "Ну мне удобно так... Я не хочу ничего менять, мне так лучше работается..."
 
-    show friend smile at center:
+    show friend two as friend_two at left:
+        zoom 0.75
+    with Dissolve(.5)
+
+    show friend smile as friend_one at right:
         zoom 0.75
     with Dissolve(.5)
 
@@ -371,6 +388,7 @@ label fox_2:
 
     hero "{i}*отлично, вот и договорились... теперь хоть немного будет чище...*"
 
+    $ fox_counter = fox_counter + 1
     jump office_2
 
 label owl_2:
@@ -405,6 +423,7 @@ label owl_2:
 
     hero "{i}*ну вот и отлично, теперь на моем рабочем месте будет чистота и порядок... правда пришлось повозиться с поиском мусорки и коробки, но ничего...*"
     
+    $ owl_counter = owl_counter + 1
     jump office_2
 
 
@@ -419,9 +438,12 @@ label office_2:
 
     hero "Так, сейчас надо..."
 
+    play music "audio/phone.mp3"
     "{i}*телефон*"
 
     hero "Оо, кто это звонит, не может быть..."
+
+    stop music
 
     hero "Але..."
 
@@ -449,7 +471,7 @@ label office_2:
 
     friend "Да, без проблем..."
 
-    show girl four smile at center:
+    show girl four smile as girl_four at center:
         zoom 0.75
     with Dissolve(.5)
 
@@ -495,7 +517,7 @@ label shark_3:
 
     hero "Ага... Все, у меня дела, не мешай"
 
-    hide girl four smile
+    hide girl_four
     with Dissolve(.5)
 
     hero "Ало, брат... Да, я буду. Давай завтра днем и встретимся, а вечерком я тебя провожу."
@@ -506,6 +528,7 @@ label shark_3:
     
     hero "{i}*она мне понадобится...*"
     
+    $ shark_counter = shark_counter + 1
     jump office_3
 
 label teddy_3:
@@ -515,7 +538,7 @@ label teddy_3:
 
     col_2 "До вечера. И без шуточек!"
 
-    hide girl four smile
+    hide girl_four
     with Dissolve(.5)
 
     pause 1
@@ -532,6 +555,7 @@ label teddy_3:
 
     hero "{i}*как-то неудобно получилось... но что поделать, если я еще раз подставлю босса, то он мне голову открутит...*"
 
+    $ teddy_counter = teddy_counter + 1
     jump office_3
 
 label turtle_3:
@@ -545,7 +569,7 @@ label turtle_3:
 
     col_2 "Стой! Ты куда? Совещание! Завтра!"
 
-    hide girl four smile
+    hide girl_four
     with Dissolve(.5)
 
     pause 1
@@ -560,6 +584,7 @@ label turtle_3:
     
     hero "{i}*она мне понадобится...*"
 
+    $ turtle_counter = turtle_counter + 1
     jump office_3
 
 label fox_3:
@@ -575,7 +600,7 @@ label fox_3:
 
     hero "Да, хорошо"
 
-    hide girl four smile
+    hide girl_four
     with Dissolve(.5)
 
     pause 1
@@ -592,6 +617,7 @@ label fox_3:
 
     hero "{i}*она мне понадобится...*"
 
+    $ fox_counter = fox_counter + 1
     jump office_3
 
 label owl_3:
@@ -601,7 +627,7 @@ label owl_3:
 
     col_2 "До вечера. И без шуточек!"
 
-    hide girl four smile
+    hide girl_four
     with Dissolve(.5)
 
     pause 1
@@ -618,18 +644,250 @@ label owl_3:
     
     hero "{i}*она мне понадобится...*"
 
+    $ owl_counter = owl_counter + 1
     jump office_3
 
 
 
 
 label office_3:
+    scene restaurant b
+    with fade
+
+    pause 1
+
+    hero "{i}*вот и обед, наконец-то..*"
+
+    hero "{i}*что бы взять поесть...*"
+
+    pause 1
+
+    show girl three smile as girl_three at center:
+        zoom 0.75
+    with Dissolve(.5)
+
+    hero "О, привет! У меня как раз к тебе важное поручение..."
+
+    col_3 "Здравствуйте! Для меня? Хорошо. А у тебя кстати в команде появился новый сотрудник, представляешь."
+
+    col_3 "Она вчера прошла собеседование, босс сказал, что она имеет довольно неплохие навыки... В общем, она не новичёк..."
+
+    show girl three smile as girl_three at left:
+        zoom 0.75
+    with Dissolve(.5)
+
+    show girl two annoyed as girl_two at right:
+        zoom 0.75
+    with Dissolve(.5)
+
+    new_col "Добрый день."
+
+    hero "Привет! Ну что, получается будешь новым сотрудником в нашей команде, отлично!"
+
+    hero "Так, а что касается поручен..."
+
+    new_col "Да, мне бы рабочее место у окна. И чтобы недалеко от кофемашины."
+
+    hero "Кхм... Да, к сожалению, у нас рабочие мес..."
+
+    new_col "И желательно сегодня. Мне нужно начать работать. Еще я не люблю, когда постоянно шумят, поэтому проконтролируйте этот момент."
+
+    menu:
+        "Да ты чё, сука ёбаная, берега попутала?":
+            jump shark_4
+        "Не портить отношения с новым коллегой":
+            jump teddy_4
+        "Разобраться в другой раз":
+            jump turtle_4
+        "Вызвать нового коллегу на приватный диалог":
+            jump fox_4
+        "Выяснить причины такого отношения":
+            jump owl_4
+
+
+label shark_4:
+    hero "Не понял, что за приказы? Я твой руководитель, если ты забыла."
+
+    new_col "Ну вообще-то у меня тоже опыта хватает. К тому же, я старше."
+
+    hero "Это не дает тебе право повышать голос на кого-либо, тем более на своего руководителя!"
+
+    hero "Еще раз повторяю, руководитель здесь я, и подобные выходки в дальнейшем могут привести к не очень приятным для тебя последствиям."
+
+    new_col "Пфф... Пойду лучше поговорю с боссом. Надеюсь, переведет меня в другой отдел, желательно подальше."
+
+    hide girl_two
+    with Dissolve(.5)
+
+    pause 1
+
+    hero "{i}*давай давай...*"
+
+    hero "{i}*будет она тут командовать... ага, разбежалась...*"
+
+    $ shark_counter = shark_counter + 1
+    jump office_4
+
+label teddy_4:
+    hero "Хорошо, будет тебе и место у окна, и никто не будет тебе мешать работать."
+
+    new_col "Ну вот и отлично. Так бы сразу."
+
+    new_col "Да, и еще кресло мне нужно с жесткой спинкой."
+
+    hero "Да, всё будет."
+
+    new_col "Хорошо. Пойду работать."
+
+    hide girl_two
+    with Dissolve(.5)
+
+    pause 1
+
+    hero "{i}*да уж... вот тебе и новый коллега...*"
+
+    $ teddy_counter = teddy_counter + 1
+    jump office_4
+
+label turtle_4:
+    hero "Так, ну у тебя и запросов..."
+
+    new_col "А вы как думали? Чтобы работать, нужно иметь, прежде всего, комфортное рабочее место."
+
+    hero "Ладно, у меня сейчас важная встреча. Поговорим на эту тему в другой раз."
+
+    new_col "Нет, рабочее место мне нужно сейчас!"
+
+    new_col "Стой!"
+
+
+    hide girl_three
+    with Dissolve(.5)
+
+    hide girl_two
+    with Dissolve(.5)
+
+    pause 1
+
+    hero "{i}*ладно, решу этот вопрос в другой раз... может и количество запросов сократится... вот новичка-то подкинули, а...*"
+
+    $ turtle_counter = turtle_counter + 1
+    jump office_4
+
+label fox_4:
+    hero "Так, давай я договорю со своим коллегой, мне надо ей кое-что сообщить."
+
+    hero "И давай поступим так: ты не будешь больше меня перебивать, а я устрою тебе хорошее рабочее место, договорились?"
+
+    new_col "Хорошо. Только побыстрее, пожалуйста. Я пойду работать."
+
+    hide girl_two
+    with Dissolve(.5)
+
+    hero "{i}*ну, вроде договорились... надо же соблюдать субординацию...*"
+
+    pause 1
+
+    $ fox_counter = fox_counter + 1
+    jump office_4
+
+label owl_4:
+    hero "Так, давай отойдем и поговорим наедине."
+
+    new_col "Хорошо, только быстро, а то мне нужно работать."
+
+    hide girl_three
+    with Dissolve(.5)
+
+    show girl two annoyed as girl_two at center:
+        zoom 0.75
+    with Dissolve(.5)
+
+    pause 1
+
+    hero "Давай договоримся на будущее: ты не будешь меня перебивать, когда я разговариваю, хорошо?"
+
+    hero "А твои требования записывай и направляй боссу. Если он одобрит, то конечно, все у тебя будет."
+
+    hero "Мне тоже важно, чтобы мои сотрудники работали в комфортных условиях."
+
+    new_col "Хорошо, я поняла, извините."
+
+    hero "Ну вот и отлично!"
+
+    hero "А теперь вернемся, и я продолжу..."
+
+    new_col "Да, всё поняла."
+
+    $ owl_counter = owl_counter + 1
+    jump office_4
+
+
+
+
+label office_4:
+    jump final_round
+
+#     menu:
+#         "":
+#             jump shark_4
+#         "":
+#             jump teddy_4
+#         "":
+#             jump turtle_4
+#         "":
+#             jump fox_4
+#         "":
+#             jump owl_4
+
+    
+
+# label shark_4:
+#     jump final_round
+
+# label teddy_4:
+#     jump final_round
+
+# label turtle_4:
+#     jump final_round
+
+# label fox_4:
+#     jump final_round
+
+# label owl_4:
+#     jump final_round
+
+
+
+
+label final_round:
+    scene boss office evening
+    with fade
+
+    pause 2
+
+    show friend smile as friend_one at center:
+        zoom 0.75
+    with Dissolve(.5)
+
+    boss "Ну что, здравствуй... А ты хорошо поработал сегодня... А главное, ты смог справиться со многими конфликтными ситуациями..."
+
+    boss "А вот твои результаты:" 
+    
+    boss "Акула: [shark_counter]\nПлюшевый мишка: [teddy_counter]\nЧерепаха: [turtle_counter]\nЛиса: [fox_counter]\nСова: [owl_counter]"
+
+    boss "Отличная работа! А теперь идти отдыхать. До завтра!"
+
+    pause 0.5
+
+    hide friend_one
+    with Dissolve(.5)
+
+    pause 1.5
+    
     return
 
 
-
-
-    
 # label start:
 
 
