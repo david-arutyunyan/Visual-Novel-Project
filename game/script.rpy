@@ -4,10 +4,10 @@
 define boss = Character('Босс', color="#b7b7b7")
 define hero = Character('Главный герой', color="#c8ffc8")
 define friend = Character('Друг', color="#47b8c9")
-define col_1 = Character('Коллега 1', color="#1e00dd")
-define col_2 = Character('Коллега 2', color="#ef22d0")
-define col_3 = Character('Коллега 3', color="#f0fc00")
-define new_col = Character('Новый коллега', color="#dd0000")
+define col_1 = Character('Степан Владимироваич', color="#1e00dd")
+define col_2 = Character('Алиса Иванова', color="#ef22d0")
+define col_3 = Character('Виктория Альбертовна', color="#f0fc00")
+define new_col = Character('Наталья Николаевна', color="#dd0000")
 default shark_counter = 0
 default teddy_counter = 0
 default turtle_counter = 0
@@ -103,7 +103,7 @@ label morning:
     hero "Вот я и на месте, главное сейчас быстренько добежать до своего рабочего места и не попасться боссу на глаза..."
 
     show friend smile as friend_one at center:
-        zoom 0.75
+        zoom 0.85
     with Dissolve(.5)
 
     pause 0.5
@@ -112,7 +112,7 @@ label morning:
 
     boss "Ну здравствуй, другалек... Гуляешь?"
 
-    hero "Здравствуйте, ээ... да вот вышел себе чего-ниубдь купить, а то утром так спешил на работу, что даже не успел ничего поесть..."
+    hero "Здравствуйте, ээ... да вот вышел себе чего-нибудь купить, а то утром так спешил на работу, что даже не успел ничего поесть..."
 
     boss "Понятно. Снова проспал..."
 
@@ -146,7 +146,7 @@ label shark_1:
 
     hero "{i}*тоже мне, раскомандовался...*"
 
-    $ shark_counter = shark_counter + 1
+    $ shark_counter = shark_counter + 1.5
     jump office_1
 
 label teddy_1:
@@ -164,7 +164,7 @@ label teddy_1:
 
     hero "{i}*повезло же мне с боссом, могло быть и хуже...*"
 
-    $ teddy_counter = teddy_counter + 1
+    $ teddy_counter = teddy_counter + 1.5
     jump office_1
 
 label turtle_1:
@@ -178,7 +178,7 @@ label turtle_1:
 
     hero "{i}*ладно, на этот раз вроде кое-как пронесло...*"
 
-    $ turtle_counter = turtle_counter + 1
+    $ turtle_counter = turtle_counter + 1.5
     jump office_1
 
 label fox_1:
@@ -194,7 +194,7 @@ label fox_1:
 
     hero "{i}*прадва теперь придется остаться после работы... но могло быть и хуже...*"
 
-    $ fox_counter = fox_counter + 1
+    $ fox_counter = fox_counter + 1.5
     jump office_1
 
 label owl_1:
@@ -210,7 +210,7 @@ label owl_1:
 
     hero "{i}*ну вот и отлично, теперь по средам, скорее всего, буду работать из дома...*"
 
-    $ owl_counter = owl_counter + 1
+    $ owl_counter = owl_counter + 1.5
     jump office_1
 
 
@@ -229,7 +229,7 @@ label office_1:
     pause 0.5
 
     show friend two smile as friend_two at center:
-        zoom 0.75
+        zoom 0.85
     with Dissolve(.5)
 
     col_1 "Ой, привет, это ты... Слушай, можно я поставлю эти игрушки к тебе, а то у меня уже нет места на столе..."
@@ -276,7 +276,7 @@ label shark_2:
     hero "Вот и готово."
 
     show friend two smile as friend_two at center:
-        zoom 0.75
+        zoom 0.85
     with Dissolve(.5)
 
     col_1 "Ой, я забыл телефон..."
@@ -349,11 +349,11 @@ label fox_2:
     col_1 "Ну мне удобно так... Я не хочу ничего менять, мне так лучше работается..."
 
     show friend two as friend_two at left:
-        zoom 0.75
+        zoom 0.85
     with Dissolve(.5)
 
     show friend smile as friend_one at right:
-        zoom 0.75
+        zoom 0.85
     with Dissolve(.5)
 
     boss "Так, что тут происходит?"
@@ -459,7 +459,7 @@ label office_2:
 
     hero "О, отличная идея!"
 
-    friend "Потом как проводишь меня на самолет..."
+    friend "Потом как раз проводишь меня на самолет..."
 
     hero "Стой, какой самолет? Ты улетаешь?"
 
@@ -472,7 +472,7 @@ label office_2:
     friend "Да, без проблем..."
 
     show girl four smile as girl_four at center:
-        zoom 0.75
+        zoom 0.85
     with Dissolve(.5)
 
     col_2 "О, привет, а я тебя повсюду ищу... Нужно будет помочь мне... Ты мне завтра нужен на очень важном совещании!"
@@ -663,7 +663,7 @@ label office_3:
     pause 1
 
     show girl three smile as girl_three at center:
-        zoom 0.75
+        zoom 0.85
     with Dissolve(.5)
 
     hero "О, привет! У меня как раз к тебе важное поручение..."
@@ -673,11 +673,11 @@ label office_3:
     col_3 "Она вчера прошла собеседование, босс сказал, что она имеет довольно неплохие навыки... В общем, она не новичёк..."
 
     show girl three smile as girl_three at left:
-        zoom 0.75
+        zoom 0.85
     with Dissolve(.5)
 
     show girl two annoyed as girl_two at right:
-        zoom 0.75
+        zoom 0.85
     with Dissolve(.5)
 
     new_col "Добрый день."
@@ -693,7 +693,7 @@ label office_3:
     new_col "И желательно сегодня. Мне нужно начать работать. Еще я не люблю, когда постоянно шумят, поэтому проконтролируйте этот момент."
 
     menu:
-        "Да ты чё, сука ёбаная, берега попутала?":
+        "Показать, кто здесь главный":
             jump shark_4
         "Не портить отношения с новым коллегой":
             jump teddy_4
@@ -800,7 +800,7 @@ label owl_4:
     with Dissolve(.5)
 
     show girl two annoyed as girl_two at center:
-        zoom 0.75
+        zoom 0.85
     with Dissolve(.5)
 
     pause 1
@@ -867,14 +867,25 @@ label final_round:
     pause 2
 
     show friend smile as friend_one at center:
-        zoom 0.75
+        zoom 0.85
     with Dissolve(.5)
 
     boss "Ну что, здравствуй... А ты хорошо поработал сегодня... А главное, ты смог справиться со многими конфликтными ситуациями..."
 
-    boss "А вот твои результаты:" 
+    boss "А вот твой результат:"
+
+    if shark_counter > teddy_counter and shark_counter > turtle_counter and shark_counter > fox_counter and shark_counter > owl_counter:
+        boss "Ты - акула. Ты стремишься добиться удовлетворения своих интересов в ущерб другому."
+    elif teddy_counter > shark_counter and teddy_counter > turtle_counter and teddy_counter > fox_counter and teddy_counter > owl_counter:
+        boss "Ты - плюшевый мишка. Ты скорее принесешь в жертву свои интересы ради интересов другого человека."
+    elif turtle_counter > shark_counter and turtle_counter > teddy_counter and turtle_counter > fox_counter and turtle_counter > owl_counter:
+        boss "Ты - черепаха. Ты склонен избегать конфликтные ситуации."
+    elif fox_counter > shark_counter and fox_counter > teddy_counter and fox_counter > turtle_counter and fox_counter > owl_counter:
+        boss "Ты - лиса. Ты способен до некоторой степени принять точку зрения другой стороны."
+    else:
+        boss "Ты - сова. Ты склонен к конструктивному обсуждению проблемы."
     
-    boss "Акула: [shark_counter]\nПлюшевый мишка: [teddy_counter]\nЧерепаха: [turtle_counter]\nЛиса: [fox_counter]\nСова: [owl_counter]"
+    # boss "Акула: [shark_counter]\nПлюшевый мишка: [teddy_counter]\nЧерепаха: [turtle_counter]\nЛиса: [fox_counter]\nСова: [owl_counter]"
 
     boss "Отличная работа! А теперь идти отдыхать. До завтра!"
 
@@ -926,7 +937,7 @@ label final_round:
     # scene boss office night
 
     # show friend smile at center:
-    #     zoom 0.75
+    #     zoom 0.85
 
     # e_1 "Здарова, я босс, если что."
 
